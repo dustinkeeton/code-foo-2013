@@ -14,7 +14,9 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/twit-stream.css" />
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <!--FirebugPHP-->
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -26,15 +28,20 @@
             <div id="question3">
                 <div id ="wordSearch"></div>
                 <div id ="wordList">
-                    <ul></ul>
                 </div>
             </div>
+            <div id="question4">
+                <!-- Twitter REST API -->
+                <?php include('twitter.php'); ?>
+            </div>
         </div>
-
+        
+       
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/wordsearch.js"></script>
+
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

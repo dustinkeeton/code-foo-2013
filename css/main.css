@@ -107,17 +107,21 @@ ul {
     -moz-box-shadow:0px 0px 25px 1px black;
     -webkit-box-shadow:0px 0px 25px 1px black;
     box-shadow:0px 0px 25px 1px black; 
-    margin: 0 auto;
-    position: relative;
+    margin: 50px auto;
+    overflow: hidden;
     width: 75%; 
-    height: 1000px;
+    height: 2000px;
 }
 
 #question3 {
-    background-color: white;
-    position: relative;
-    margin: 100px auto;
+    background-color: gray;
+    border-radius: 25px;
+    -moz-box-shadow:0px 0px 25px 1px black inset;
+    -webkit-box-shadow:0px 0px 25px 1px black inset;
+    box-shadow:0px 0px 25px 1px black inset; 
+    margin: 50px auto;
     overflow: hidden;
+    padding: 25px;
     width: 75%;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -127,9 +131,10 @@ ul {
 }
 
 #wordSearch {
+    position: relative;
     background-color: red;
     float: left;
-    width:50%;
+    width:75%;
 }
 
 .row {
@@ -161,13 +166,11 @@ ul {
 }
 
 #wordList {
-    color: gray;
-    display: inline-block;
+    color: white;
     position: relative;
-    background-color: yellow;
     text-align: center;
     float: left;
-    width: 50%;
+    width: 25%;
 }
 
 #listTitle{
@@ -187,12 +190,45 @@ ul {
     font-weight: bold;
 }
 
+#question4 {
+    background-color: white;
+    clear: both;
+    position: relative;
+}
 
+.twitter-timeline {
+    display: block;
+    margin: 0 auto;
+}
 
+#twitter_update_list li {
 
+}
 
-
-
+.twitStream{
+    font-family: verdana;
+    font-size: 11px;
+}
+.twitStream a{
+    font-family: verdana;
+    font-size: 11px;
+}
+.tweet{
+    display: block;
+    padding: .4em;
+    margin: .4em 0;
+}
+.tweet-left{
+    float: left;
+    margin-right: 1em;
+}
+.tweet-left img{
+    border: 2px solid #000000;
+}
+.tweet p.text{
+    margin: 0;
+    padding: 0;
+}
 
 
 
