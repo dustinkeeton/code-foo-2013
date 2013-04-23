@@ -178,7 +178,7 @@ $(document).ready(function(){
 							
 							for (var i=0; i<xorigins.length; i++){
 								
-								//Reinitialize 
+								//(Re)initialize 
 								var currentString = "";
 								var currentLetters = [];
 								var x = 0;

@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>Code-Foo 2013 Application - Dustin Keeton</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -30,9 +30,10 @@
                 <div id ="wordList">
                 </div>
             </div>
-            <div id="question4">
+            <div id="question5">
                 <!-- Twitter REST API -->
                 <?php include('twitter.php'); ?>
+                <a href='#' id="refreshTwitter">CLICK TO REFRESH</a>
             </div>
         </div>
         
@@ -41,6 +42,7 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/wordsearch.js"></script>
+        <script src="js/twitter.js"></script>
 
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

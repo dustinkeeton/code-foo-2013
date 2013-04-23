@@ -94,7 +94,7 @@ textarea {
    ========================================================================== */
 
 body {
-    background-color: gray;
+    background-color: white;
 }
 
 ul {
@@ -103,6 +103,8 @@ ul {
 }
 
 #container {
+    background-color: gray;
+    border: 3px solid black;
     border-radius: 25px;
     -moz-box-shadow:0px 0px 25px 1px black;
     -webkit-box-shadow:0px 0px 25px 1px black;
@@ -110,7 +112,7 @@ ul {
     margin: 50px auto;
     overflow: hidden;
     width: 75%; 
-    height: 2000px;
+    height: 8000px;
 }
 
 #question3 {
@@ -132,7 +134,6 @@ ul {
 
 #wordSearch {
     position: relative;
-    background-color: red;
     float: left;
     width:75%;
 }
@@ -190,51 +191,76 @@ ul {
     font-weight: bold;
 }
 
-#question4 {
-    background-color: white;
+#question5 {
+    background-color: gray;
+    border-radius: 25px;
+    -moz-box-shadow:0px 0px 25px 1px black inset;
+    -webkit-box-shadow:0px 0px 25px 1px black inset;
+    box-shadow:0px 0px 25px 1px black inset; 
+    margin: 50px auto;
+    overflow: hidden;
+    padding: 25px;
+    width: 75%;
     clear: both;
     position: relative;
 }
 
-.twitter-timeline {
-    display: block;
+#timeline {
+    margin: 15px auto;
+}
+
+.tweet{
+    background-color: white;
+    border: 1px solid black;
+    width: 300px;
+    height: 150px;
+    margin: 1px auto;
+    overflow: hidden;
+}
+
+.profile_image {
+    background-color: transparent;
+    position: relative;
+    float: left;
+    width: 50px;
+}
+
+.tweet_content{
+    background-color: transparent;
+    position: relative;
+    float: left;
+    width: 250px;
+}
+
+.screen_name {
+    position: relative;
+    float: left;
+}
+
+.name {
+    position: relative;
+    float: left;
+    font-size: 12px;
+    font-color: gray;
+    left: 10px;
+    top: 3px;
+}
+
+.time {
+
+}
+
+.tweet_text {
+    position: relative;
+    clear: both;
+    margin: 2px 25px 0px auto;
+    text-align: left;
+}
+
+#refreshTwitter {
+    text-decoration: none;
     margin: 0 auto;
 }
-
-#twitter_update_list li {
-
-}
-
-.twitStream{
-    font-family: verdana;
-    font-size: 11px;
-}
-.twitStream a{
-    font-family: verdana;
-    font-size: 11px;
-}
-.tweet{
-    display: block;
-    padding: .4em;
-    margin: .4em 0;
-}
-.tweet-left{
-    float: left;
-    margin-right: 1em;
-}
-.tweet-left img{
-    border: 2px solid #000000;
-}
-.tweet p.text{
-    margin: 0;
-    padding: 0;
-}
-
-
-
-
-
-
 
 
 
