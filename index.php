@@ -24,16 +24,25 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <div id="container">  
+        <div id="container"> 
+            <div id="question1">
+                <video id ="video" width="320" height="240" controls>
+                  <source src="video/video.m4v" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div> 
             <div id="question3">
                 <div id ="wordSearch"></div>
                 <div id ="wordList">
                 </div>
             </div>
             <div id="question5">
+                <a href='#' id="refreshTwitter">CLICK TO REFRESH</a>
                 <!-- Twitter REST API -->
                 <?php include('twitter.php'); ?>
-                <a href='#' id="refreshTwitter">CLICK TO REFRESH</a>
+            </div>
+            <div id="question6">
+
             </div>
         </div>
         
