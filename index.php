@@ -22,7 +22,7 @@
         <![endif]-->
 
         <div id="container"> 
-            <div id="qUSion1">
+            <div id="question1">
                 CREATE A 2-5 MINUTE VIDEO INTRODUCING YOUSLF AND SHOWING YOUR PASSION FOR IGN AND THE CODE-FOO PROGRAM.
                 <video id ="video" width="320" height="240" controls>
                   <source src="video/video.m4v" type="video/mp4">
@@ -30,7 +30,7 @@
                 </video>
             </div> 
             <hr>
-            <div id="qUSion2">
+            <div id="question2">
                 <div>
                     <p>HOW MANY GAMERS ARE IN THE SAN FRANCISCO BAY AREA? DESCRIBE EACH STEP IN YOUR THOUGHT PROCESS.</p>
                     <p>
@@ -78,19 +78,19 @@
                 </div>
             </div>
             <hr>
-            <div id="qUSion3">
+            <div id="question3">
                 WRITE A PROGRAM TO FIND THE GIVEN WORDS FROM THE FOLLOWING WORD SEARCH.
                 <div id ="wordSearch"></div>
                 <div id ="wordList">
                 </div>
             </div>
             <hr>
-            <div id="qUSion4">
+            <div id="question4">
                 CREATE A RESPONSIVE LAYOUT USING MEDIA QUERIES. MUST SUPPORT iPAD, iPHONE, AND COMMON RESOLUTIONS FOR DESKTOPS. NEST YOUR ENTIRE APPLICATION IN THIS RESPONSIVE INTERFACE.
                 <div>You're lookin' at it.</div>
             </div>
             <hr>
-            <div id="qUSion5">
+            <div id="question5">
                 USING THE TWITTER API, PULL AND DISPLAY THE LAST 40 TWEETS FROM THE 'IGN' ACCOUNT. USE DEV.TWITTER.COM FOR REFERENCE.
                 <!-- Twitter REST API -->
                 <?php include('twitter.php'); ?>
