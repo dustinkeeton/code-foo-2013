@@ -130,6 +130,7 @@ $(document).ready(function(){
 							yorigins[i] = Letters[firstLetter][i].ycoord;
 						}
 
+						//checks in all directions
 						for (var k=0; k<directions.length; k++) {
 							var direction = directions[k];
 
@@ -204,6 +205,7 @@ $(document).ready(function(){
 						alert("Word was not found.");
 					}
 
+					//highlights found words
 					function highlightWord(currentLetters){
 						for (var i=0; i<currentLetters.length; i++){
 							$(currentLetters[i]).addClass('highlight');

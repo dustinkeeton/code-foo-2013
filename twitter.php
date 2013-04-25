@@ -24,10 +24,10 @@
   $baseURI = "https://api.twitter.com/1.1/statuses/user_timeline.json";
 
   //INSERT OWN VALUES HERE FROM https://dev.twitter.com/apps
-  $oauth_access_token = "ENTER YOURS HERE";
-  $oauth_access_token_secret = "ENTER YOURS HERE";
-  $consumer_key = "ENTER YOURS HERE";
-  $consumer_secret = "ENTER YOURS HERE";
+  $oauth_access_token = "44307660-Vdk9pEOAcvhCpF7bpmqOBVtt4ePrAteA83pJDapgr";
+  $oauth_access_token_secret = "H3Sq2B1K4vXKcWIOW0asXLRX7Gh66SeH27HRokEfMzU";
+  $consumer_key = "q2l9S8N3Dmi9UEa1bNJfQ";
+  $consumer_secret = "9E2m7hz8cYnwtG37Mwd6viUP5t1X6zuimrKMp5HuMTA";
 
   //oauth parameters with query parameters
   $oauth = array( 'screen_name' => 'IGN', 
@@ -143,5 +143,35 @@
   echo "</div>";
 
   $most_common_word = mostCommonWord($allText);
-  echo "<div>MOST COMMON WORD: \"<a href='https://twitter.com/search?q=%23".$most_common_word."' target='_blank'>".$most_common_word."</a>\"</div>";
-  ?>
+  
+  
+   echo "</div>
+         <hr>
+         <div id='question6'>
+            <p>USING THE RESULTS FROM THE PREVIOUS QUESTION, DETERMINE THE MOST COMMONLY USED WORDS. WHAT IS THE SCALABILITY OF THIS ALGORITHM? WOULD THIS ALGORITHM STILL WORK IF YOU WERE PARSING BILLIONS OF TWEETS?</p>
+            <p>MOST COMMON WORD: \"<a href='https://twitter.com/search?q=%23".$most_common_word."' target='_blank'>".$most_common_word."</a>\"</p>";
+?>
+
+  <p>
+    The algorithm I used is very simple - it uses the pre-built PHP functions strtolower(), preg_replace(), preg_split(), array_count_values(), 
+    arSort(), and key(). Here is my assumed algorithm for what array_count_values(): it has to loop over each element in $textExplode(),
+    and compare it with each key that has already been added to $word_counts. If the key does not exist, it is made and the value is set to 1.
+    Otherwise, the value of the existing key is incremented by 1.<br><br>
+
+    I think the highest cost could come from arSort() if its alorithm is O(nlogn).
+    If however, its run time is O(n) then the algorithm employed in the code should scale linearly. It would scale very well though I'm not sure how
+    PHP would handle over a billion elements in an array - probably not well. You could also employ this similarly simple algorithm with an asymptotic 
+    running time of O(n):
+
+    <ol>
+      <li>Start out with an n-long array of all words, with duplicates, $words. Also have an associative array (dictionary) $word_counts.
+      <li>Loop over each word in $words and increment the value in $word_counts[word].
+      <li>Set $max = 0 and $word_list = array().
+      <li>Loop over all elements in $word_counts. if $word_counts[$key] == max then append it to $word_list. Else if $word_counts[$key] > max then max = 
+      $word_counts[$key] and $word_list = $key.
+    </ol>
+    
+    $word_list would then consist of the most frequent words as they each occurred the maximum amount of times.<br>
+    The cost is O(n) as we had to run over the n-long array words twice. This is the theoretic lower bound and scales as well as the current method
+    I am using, assuming that arSort() sorts in O(n) time.
+  </p>
