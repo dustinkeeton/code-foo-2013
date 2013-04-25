@@ -75,7 +75,7 @@
   function insertEntity($text, $tweet) {
     if (isset($tweet->entities->urls) || isset($tweet->entities->hashtags) || isset($tweet->entities->user_mentions)) {
       foreach ($tweet->entities->urls as $url) {
-        //using expanded_url here to ensure correct URL is used
+        //using expanded_url here to ensure accurate URL is used
         $expanded_url = $url->expanded_url;                                             
         $replace = "<a href='".$expanded_url."' target='_blank'>".$url->display_url."</a>";
         $text = str_replace($url->url, $replace, $text);
@@ -96,8 +96,18 @@
     return $text;
   }
 
+  //Count words in a string and return most common
+  function mostCommonWord($string){
+    $lowerCase = strtolower($string);
+    $lowerCase = preg_replace("/http[^\s]+/", '', $lowerCase);
+    $textExplode = preg_split("/[\s!@#$%&*)(+=}{\\:;\",.?<>]/", $lowerCase, -1, PREG_SPLIT_NO_EMPTY);
+    $word_counts = array_count_values($textExplode);
+    arSort($word_counts);
+    return key(($word_counts));
+  }
+
   $twitterData = json_decode($json);
-  $allText = array();
+  $allText = '';
 
   //Parse through decoded JSON and insert into the DOM 
   echo "<div id='timeline'>";
@@ -110,12 +120,9 @@
     $name = $tweet->user->name;
     $profile_image_url = $tweet->user->profile_image_url;
 
-    //Add text to "clean" text to allText array for counting later on
-    $lowerCase = strtolower($text);
-    $lowerCase = preg_replace("/http[^\s]+/", '', $lowerCase);
-    $textExplode = preg_split("/[\s!@#$%&*)(+=}{\\:;\",.?<>]/", $lowerCase);
-    $allText = array_merge($allText, $textExplode);
-
+    //Add text to allText for counting later on
+    $allText = $allText.' '.$text;
+    
     //Add links where appropriate
     $text = insertEntity($text, $tweet);
 
@@ -135,10 +142,6 @@
   }
   echo "</div>";
 
-  //Count words and return most common
-  $word_counts = array_count_values($allText);
-  arSort($word_counts);
-  $garbage = array_shift($word_counts);     //array always contains invalid first element. array_filter() does not solve issue
-  $most_common_word = key($word_counts);
+  $most_common_word = mostCommonWord($allText);
   echo "<div>MOST COMMON WORD: \"<a href='https://twitter.com/search?q=%23".$most_common_word."' target='_blank'>".$most_common_word."</a>\"</div>";
   ?>
