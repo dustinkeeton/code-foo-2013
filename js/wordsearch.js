@@ -116,6 +116,12 @@ $(document).ready(function(){
 						highlightWord(result);
 					});
 
+					$('.button').click(function(){
+						$('.wordClicked').removeClass('wordClicked');
+						$('.highlight').removeClass('highlight');
+						return false;
+					});
+
 					function searchGrid(currentWord){
 						var firstLetter = currentWord[0];
 						var xorigins =	[];

@@ -102,8 +102,12 @@
     $lowerCase = preg_replace("/http[^\s]+/", '', $lowerCase);
     $textExplode = preg_split("/[\s!@#$%&*)(+=}{\\:;\",.?<>]/", $lowerCase, -1, PREG_SPLIT_NO_EMPTY);
     $word_counts = array_count_values($textExplode);
-    arSort($word_counts);
-    return key($word_counts);
+
+    //find max count
+    $max = max($word_counts);
+    $top = array_keys($word_counts, $max);
+
+    return $top;
   }
 
   $twitterData = json_decode($json);
@@ -126,11 +130,6 @@
     //Add links where appropriate
     $text = insertEntity($text, $tweet);
 
-    // NOT BEING USED - timestamp from API was Berlin/Europe for some reason
-    // $timestamp = strtotime($tweet->created_at);
-    // $date = date('D', $timestamp);
-    // $time = date('g:ia e', $timestamp);
-
     //Insert into DOM
     echo "<a class=\"profile_image\" href=\"http://twitter.com/".$screen_name."\" title=\"".$screen_name."\" target=\"_blank\"><img src=\"".$profile_image_url."\" alt=\"".$name."\" /></a>"; 
     echo "<div class=\"tweet_content\">";
@@ -144,35 +143,37 @@
 
   $most_common_word = mostCommonWord($allText);
   
-  
+  foreach($most_common_word as $word){
+    $most_common_string .= "<a href='https://twitter.com/search?q=%23".$word."' target='_blank'>".$word."</a> ";
+  }
+
    echo "</div>
          <hr>
-         <div id='question6'>
-            <p>USING THE RESULTS FROM THE PREVIOUS QUESTION, DETERMINE THE MOST COMMONLY USED WORDS. WHAT IS THE SCALABILITY OF THIS ALGORITHM? WOULD THIS ALGORITHM STILL WORK IF YOU WERE PARSING BILLIONS OF TWEETS?</p>
-            <p>MOST COMMON WORD: \"<a href='https://twitter.com/search?q=%23".$most_common_word."' target='_blank'>".$most_common_word."</a>\"</p>";
+         <div class=\"question\">
+            <p class=\"prompt\"><h4>Using the results from the previous question, determine the most commonly used words. What is the scalability of this algorithm? Would this alrogrithm still work if you were parsing billions of tweets?</h4></p>
+            <p>MOST COMMON WORD(S): $most_common_string</p>";
 ?>
 
   <p>
     The algorithm I used is very simple - it uses the pre-built PHP functions strtolower(), preg_replace(), preg_split(), array_count_values(), 
-    arSort(), and key(). Here is my assumed algorithm for array_count_values(): it has to loop over each element in $textExplode(),
+    max(), and array_keys(). Array_count_values() has to loop over each element in $textExplode() 
     and compare it with each key that has already been added to $word_counts. If the key does not exist, it is made and the value is set to 1.
     Otherwise, the value of the existing key is incremented by 1.<br><br>
 
-    I think the highest cost could come from arSort() if its algorithm is O(nlogn).
-    If however, its run time is O(n) then the algorithm employed in the code should scale linearly. It would scale very well though I'm not sure how
-    PHP would handle over a billion elements in an array - probably not well. You could also employ this similarly simple algorithm with an asymptotic 
-    running time of O(n):
+    I was going to write this function with arSort() but its algorithm runs in O(nlogn) so I worked around it.<br><br>
+    
+    The algorithm employed in the code has an asymptotic running time of O(n) and should scale linearly. It would scale very well though I'm not sure how
+    PHP would handle over a billion elements in an array - probably not well. Here is the methodology:
 
     <ol>
-      <li>Start out with an n-long array of all words, with duplicates, $words. Also have an associative array (dictionary) $word_counts.
-      <li>Loop over each word in $words and increment the $value in $word_counts[$word].
-      <li>Set $max = 0 and $most_commmon = array().
-      <li>Loop over all elements in $word_counts. if $word_counts[$word] == $max then append it to $most_common. Else if $word_counts[$word] > $max 
-        then $max = $word_counts[$word], empty $most_common, and set it = $word.
+      <li>Start out with an n-long array of all words, with duplicates, $textExplode. Also have an associative array (dictionary) $word_counts.
+      <li>Loop over each word in $textExplode and increment the $value in $word_counts[word] using array_count_values().
+      <li>Set $max equal to the maximum value (count) with max($word_counts).
+      <li>Get the keys (words) of the elements in $word_counts whose values match $max using and place them in new array $top using array_keys($word_counts, $max).
+      <li>Return $top and echo it out.
     </ol>
 
-    $most_common would then consist of the most frequent words as they each occurred the maximum amount of times (this would actually account for situations
-    when multiple words have the same highest $word_counts[$word] $value).<br><br>
-    The cost is O(n) as we had to run over the n-long array $words twice. This is the theoretic lower bound and scales as well as the current method
-    I am using, assuming that arSort() sorts in O(n) time.
+    $top consists of the most frequent words as they each occurred the maximum amount of times (this accounts for situations
+    when multiple words have the same highest $word_counts[$word] value).<br><br>
+    The cost is O(n) as we had to run over the n-long array $textExplode once and $word_counts twice. This is the theoretic lower bound and scales very well.
   </p>

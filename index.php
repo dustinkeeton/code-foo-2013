@@ -9,11 +9,9 @@
         <title>Code-Foo 2013 Application - Dustin Keeton</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <link href="css/no-theme/jquery-ui-1.10.2.custom.min.css" rel="stylesheet"> <!-- jquery ui theme  -->
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -22,17 +20,18 @@
         <![endif]-->
 
         <div id="container"> 
-            <div id="question1">
-                CREATE A 2-5 MINUTE VIDEO INTRODUCING YOUSLF AND SHOWING YOUR PASSION FOR IGN AND THE CODE-FOO PROGRAM.
-                <video id ="video" width="320" height="240" controls>
+            <div id="title"><h1>Dustin Keeton - Code-Foo 2013 Application</h1></div>
+            <div class="question">
+                <p class="prompt"><h4>Create a 2-5 minute video introducing yourself and showing your passion for IGN and the Code-Foo program.</h4></p>
+                <video id ="video" controls>
                   <source src="video/video.m4v" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div> 
             <hr>
-            <div id="question2">
+            <div class="question">
                 <div>
-                    <p>HOW MANY GAMERS ARE IN THE SAN FRANCISCO BAY AREA? DESCRIBE EACH STEP IN YOUR THOUGHT PROCESS.</p>
+                    <p class="prompt"><h4>How many gamers are in the San Francisco Bay Area? Describe each step in your thought process.</h4></p>
                     <p>
                         - Assumed Information -<br>
                         Gamer - Someone who plays games somewhat consistently.<br><br>  
@@ -63,35 +62,40 @@
 
                         Also, the term 'gamer' is very loose. Judging by the ESA's statement that only 46% of gamers had or had planned to buy more
                         than ZERO games in 2012 I might argue that only those 46% are actual gamers. This of course opens a whole can of worms
-                        about income and so-forth. I guess you could argue that you're still a gamer if you've been playing Ocarina of Time everyday for the past 15 years.<br><br>
+                        about income and so-forth. I suppose you could still be a gamer if you've been playing Ocarina of Time everyday for the past 15 years.<br><br>
 
                         So...<br><br>
 
                         Given the numbers and assumptions, the total number of gamers in San Francisco is 502,311.
                         I would rather say that the number is 46% of that, or 231,063.<br><br>
 
-                        I would also like to consider the fact that San Francisco is a tech-centric city. And it has a good deal of game development
-                        studios if you look at <a href="http://www.gamedevmap.com/index.php?query=francisco&Submit=Search" target="_blank">gamedevmap</a>. However, because we
-                        have no actual data for these considerations I will stick to my answers of 502,311 or 231,063 depending on your definition
-                        of a gamer. If it is required to have only one answer, then I suppose I will go with 502,311 to be in keeping with popular census groups.
+                        San Francisco is a tech-centric city with many game development studios according to 
+                        <a href="http://www.gamedevmap.com/index.php?query=francisco&Submit=Search" target="_blank">gamedevmap</a>. The percentage of
+                        gamers in San Francisco is likely to be higher than that of the American population as a whole. Thus the above answer
+                        of 502,311 gamers, or 231,063 under the stricter definition, is most likely a lower bound on the actual number. However, without 
+                        data it is difficult to determine a more accurate value. If it is required to have only one answer, then I suppose 
+                        I will go with 502,311 to be in keeping with popular census groups.
                     </p>
                 </div>
             </div>
             <hr>
-            <div id="question3">
-                WRITE A PROGRAM TO FIND THE GIVEN WORDS FROM THE FOLLOWING WORD SEARCH.
+            <div class="question" >
+                <p class="prompt"><h4>Write a program to find the given words from the following word search.</h4></p>
                 <div id ="wordSearch"></div>
                 <div id ="wordList">
                 </div>
             </div>
+            <div class="button" href="#">CLEAR</div>
             <hr>
-            <div id="question4">
-                CREATE A RESPONSIVE LAYOUT USING MEDIA QUERIES. MUST SUPPORT iPAD, iPHONE, AND COMMON RESOLUTIONS FOR DESKTOPS. NEST YOUR ENTIRE APPLICATION IN THIS RESPONSIVE INTERFACE.
+            <div class="question">
+                <p class="prompt"><h4>Create a responsive layout using media queries. Must support iPad, iPhone, and common resolutions for
+                    desktops. Nest your entire application in this responsive interface.</h4></p>
                 <div>You're lookin' at it.</div>
             </div>
             <hr>
-            <div id="question5">
-                USING THE TWITTER API, PULL AND DISPLAY THE LAST 40 TWEETS FROM THE 'IGN' ACCOUNT. USE DEV.TWITTER.COM FOR REFERENCE.
+            <div class="question">
+                <p class="prompt"><h4>Using the Twitter API, pull and display the last 40 tweets from the 'ign' account. Use <a href="http://dev.twitter.com" 
+                    target="_blank">dev.twitter.com</a> for reference</h4></p>
                 <!-- Twitter REST API -->
                 <?php include('twitter.php'); ?>
            
@@ -100,8 +104,10 @@
         
        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/wordsearch.js"></script>
+        <script>window.jQuery.ui || document.write('<script src="js/libs/jquery-ui-1.10.2.custom.min.js"><\/script>')</script>
     </body>
 </html>
