@@ -426,23 +426,17 @@ textarea {
     }
 }
 
-/*Laptop*/
+/*iPad portrait */
 @media only screen and (min-width: 46em){
     #container {
         border-radius: 25px;
         margin: 50px auto;
-        width: 75%; 
-    }
-
-    #video {
-        width: 640px;
-        height: 480px;
-        margin: 0 auto;
+        width: 90%; 
     }
 
     .letter {
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
         font-size: 16px;
     }
 
@@ -465,11 +459,42 @@ textarea {
     }
 }
 
+/*iPad Landscape*/
+@media only screen and (min-width: 60em){
+     #video {
+        width: 640px;
+        height: 480px;
+    }
+
+    .letter {
+        width: 25px;
+        height: 25px;
+    }
+
+    .tweet{
+        width: 350px;
+        height: 175px;
+        margin: 1px auto;
+    }
+
+}
+
+/*Laptop*/
+@media only screen and (min-width: 78em){
+    #container {
+        width: 75%; 
+    }
+
+    .tweet{
+        width: 350px;
+        height: 200px;
+        margin: 1px auto;
+    }
+}
+
 /*Desktop*/
 @media only screen and (min-width: 87em){}
 
-/*iPad*/
-@media only screen and (min-width: 93em){}
 
 /*Widescreen Desktop*/
 @media only screen and (min-width: 118em){}4

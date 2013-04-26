@@ -22,7 +22,6 @@ var Letters = {};	//This will be used as a dictionary for all the Letter objects
 
 //When document is ready, execute
 $(document).ready(function(){
-
 	//Make sure Ajax does not cache in case word-search.txt context changes.
 	$.ajaxSetup({
 		cache: false

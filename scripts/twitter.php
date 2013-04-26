@@ -169,7 +169,7 @@
       <li>Start out with an n-long array of all words, with duplicates, $textExplode. Also have an associative array (dictionary) $word_counts.
       <li>Loop over each word in $textExplode and increment the $value in $word_counts[word] using array_count_values().
       <li>Set $max equal to the maximum value (count) with max($word_counts).
-      <li>Get the keys (words) of the elements in $word_counts whose values match $max using and place them in new array $top using array_keys($word_counts, $max).
+      <li>Get the keys (words) of the elements in $word_counts whose values match $max and place them in new array $top using array_keys($word_counts, $max).
       <li>Return $top and echo it out.
     </ol>
 
