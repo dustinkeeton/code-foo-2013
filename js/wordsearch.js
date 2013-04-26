@@ -22,6 +22,7 @@ var Letters = {};	//This will be used as a dictionary for all the Letter objects
 
 //When document is ready, execute
 $(document).ready(function(){
+
 	//Make sure Ajax does not cache in case word-search.txt context changes.
 	$.ajaxSetup({
 		cache: false
@@ -59,11 +60,11 @@ $(document).ready(function(){
 					var listTitle = words.splice(0,1);
 					
 					//add each word to the DOM separately, adding extra <div>'s
-					$('#wordList').prepend("<div id ='listTitle'>"+listTitle+"</div><ul>");
+					$('#wordList').prepend("<div id ='listTitle'>"+listTitle+"</div>(Click)<ul>");
 					for (var i = 0; i < words.length; i++){
 						$('#wordList ul').append("<li class='word'>"+words[i]+"</li>");
 					}
-					$('#wordList').append("</ul>");
+					$('#wordList').append("<div class=\"button\" href=\"#\">CLEAR</div></ul>");
 
 					//get rid of spaces in words for searching purposes and make new Word object
 					for (var i = 0; i < words.length; i++) {

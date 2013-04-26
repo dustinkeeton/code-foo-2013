@@ -1,3 +1,19 @@
+NOTES
+-----
+I was sure to only use external resources/libraries that explicitly state through their license or otherwise that free use is permitted.
+Template used:
+HTML5 BoilerPlate
+
+Libraries used:
+jQuery
+jQuery UI
+Pygame
+
+Resources Used:
+bg pattern from www.subtlepatterns.com
+-----
+
+
 IGN's Code-Foo 2013
 =============
 

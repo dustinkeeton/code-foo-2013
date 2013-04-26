@@ -7,11 +7,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Code-Foo 2013 Application - Dustin Keeton</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="Code-Foo 2013 Application - Dustin Keeton">
+        <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1 user-scalable=no">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <link href="css/no-theme/jquery-ui-1.10.2.custom.min.css" rel="stylesheet"> <!-- jquery ui theme  -->
+        <link href="css/no-theme/jquery-ui-1.10.2.custom.css" rel="stylesheet"> <!-- jquery ui theme  -->
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -21,17 +21,19 @@
 
         <div id="container"> 
             <div id="title"><h1>Dustin Keeton - Code-Foo 2013 Application</h1></div>
-            <div class="question">
-                <p class="prompt"><h4>Create a 2-5 minute video introducing yourself and showing your passion for IGN and the Code-Foo program.</h4></p>
-                <video id ="video" controls>
-                  <source src="video/video.m4v" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div> 
-            <hr>
-            <div class="question">
-                <div>
-                    <p class="prompt"><h4>How many gamers are in the San Francisco Bay Area? Describe each step in your thought process.</h4></p>
+            <div id="spacer"></div>
+            <div id = 'accordion'> 
+                <h2><a href="#">Question 1</a></h2>
+                <div class="question">
+                    <h4 class="prompt">Create a 2-5 minute video introducing yourself and showing your passion for IGN and the Code-Foo program.</h4>
+                    <video id ="video" controls preload>
+                      <source src="video/video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div> 
+                <h2><a href="#">Question 2</a></h2>
+                <div class="question">
+                    <h4 class="prompt">How many gamers are in the San Francisco Bay Area? Describe each step in your thought process.</h4>
                     <p>
                         - Assumed Information -<br>
                         Gamer - Someone who plays games somewhat consistently.<br><br>  
@@ -77,37 +79,53 @@
                         I will go with 502,311 to be in keeping with popular census groups.
                     </p>
                 </div>
-            </div>
-            <hr>
-            <div class="question" >
-                <p class="prompt"><h4>Write a program to find the given words from the following word search.</h4></p>
-                <div id ="wordSearch"></div>
-                <div id ="wordList">
+                <h2><a href="#">Question 3</a></h2>
+                <div class="question">
+                    <h4 class="prompt">Write a program to find the given words from the following word search.</h4>
+                    <div id ="wordSearch"></div>
+                    <div id ="wordList">
+                    </div>
+                </div>
+                <h2><a href="#">Question 4</a></h2>
+                <div class="question">
+                    <h4 class="prompt">Create a responsive layout using media queries. Must support iPad, iPhone, and common resolutions for
+                        desktops. Nest your entire application in this responsive interface.</h4>
+                    <div class="center">You're lookin' at it.</div>
+                </div>
+                <h2><a href="#">Question 5</a></h2>
+                <div class="question">
+                    <h4 class="prompt">Using the Twitter API, pull and display the last 40 tweets from the 'ign' account. Use <a href="http://dev.twitter.com" 
+                        target="_blank">dev.twitter.com</a> for reference</h4>
+                    <div class="center">Note: This requires IGN to enter in an access token, token secret, consumer key, and consumer secret in the file
+                    "twitter.php" in order to work.</div>
+                    <!-- Twitter REST API -->
+                    <?php include('scripts/twitter.php'); ?>
+               
+                </div>
+                <h2><a href='#'>Bonus</a></h2>
+                <div class="question">
+                    <h4 class="prompt">Create a game similar to Space Invaders. There are no language restrictions.</h4>
+                    <div class="center"><a href="Spaceshooter.zip">Spaceshooter</a></div>
+                    <div class="center">
+                        I did not finish the game but please take a look at what I have if you can. I did not have time to package it for
+                        proper deployment so it will only run from a command shell. It requires Python and Pygame.
+                    </div> 
                 </div>
             </div>
-            <div class="button" href="#">CLEAR</div>
-            <hr>
-            <div class="question">
-                <p class="prompt"><h4>Create a responsive layout using media queries. Must support iPad, iPhone, and common resolutions for
-                    desktops. Nest your entire application in this responsive interface.</h4></p>
-                <div>You're lookin' at it.</div>
-            </div>
-            <hr>
-            <div class="question">
-                <p class="prompt"><h4>Using the Twitter API, pull and display the last 40 tweets from the 'ign' account. Use <a href="http://dev.twitter.com" 
-                    target="_blank">dev.twitter.com</a> for reference</h4></p>
-                <!-- Twitter REST API -->
-                <?php include('twitter.php'); ?>
-           
-            </div>
+            <div id="spacer"></div>
+            <div id='footer'>Thank you IGN!</div>
         </div>
         
        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
         <script src="js/wordsearch.js"></script>
         <script>window.jQuery.ui || document.write('<script src="js/libs/jquery-ui-1.10.2.custom.min.js"><\/script>')</script>
+
+        <script>
+            $("#accordion").accordion({heightStyle: "content", collapsible: true});
+            // $("#accordion").accordion("option", "icons", { 'header': 'ui-icon-circle-plus', 'headerSelected': 'ui-icon-circle-minus'});
+        </script>
     </body>
 </html>
